@@ -1,0 +1,22 @@
+# Credentials and machine-local state
+.env
+.env.*
+!.env.example
+auth.json
+hosts.yml
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+*.db
+*.db-*
+*.sqlite*
+*.log
+__pycache__/
+.venv/
+node_modules/
+sessions/
+memories/
+logs/
+backups/
+.cache/

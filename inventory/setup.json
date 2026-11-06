@@ -1,0 +1,23 @@
+{
+  "os": "Ubuntu 24.04.5 LTS",
+  "architecture": "x86_64",
+  "hermes_upstream": "https://github.com/NousResearch/hermes-agent.git",
+  "hermes_commit": "2bd378ed1b8d6bf2192cb26e0a55ff3091e6bd19",
+  "source_worktree_clean": true,
+  "installed_skill_count": 44,
+  "customized_skills": [],
+  "custom_plugins": [],
+  "custom_hooks": [],
+  "custom_soul": false,
+  "enabled_user_services": [
+    "hermes-gateway.service",
+    "hermes-dashboard.service"
+  ],
+  "active_system_services": [
+    "tailscaled",
+    "docker",
+    "ssh"
+  ],
+  "lingering_enabled": true,
+  "docker_workload_inventory": "Not collected: current account lacks Docker socket access. No containers, volumes, images or Docker credentials are backed up."
+}
