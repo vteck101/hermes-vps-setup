@@ -1,0 +1,24 @@
+{
+  "groups": {
+    "group:hermes-admins": ["admin@example.com"]
+  },
+  "tagOwners": {
+    "tag:hermes-vps": ["autogroup:admin"]
+  },
+  "grants": [
+    {
+      "src": ["group:hermes-admins"],
+      "dst": ["tag:hermes-vps"],
+      "ip": ["tcp:22", "tcp:9119"]
+    }
+  ],
+  "ssh": [
+    {
+      "action": "check",
+      "src": ["group:hermes-admins"],
+      "dst": ["tag:hermes-vps"],
+      "users": ["hermes"],
+      "checkPeriod": "12h"
+    }
+  ]
+}

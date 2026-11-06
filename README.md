@@ -8,6 +8,8 @@ Private reusable setup for **vteck101**. This is a configuration/source referenc
 - Empty environment-variable template (names only).
 - Exact upstream source reference through the `hermes-agent` Git submodule, including the bundled skills and package lockfiles.
 - Portable optional localhost-only dashboard systemd unit; gateway unit regenerated on the destination.
+- Tailscale installation/re-authentication guide, restricted policy example, and an optional direct-tailnet dashboard template.
+- Security baseline separating verified observations from unverified firewall/SSH policy and suggested hardening.
 - Observed Ubuntu/package inventory and deployment notes.
 
 The existing installation had no source changes, customized skills, custom plugins/hooks, or modified SOUL file. Those are preserved by the upstream commit rather than duplicated.
@@ -63,7 +65,7 @@ API keys, OAuth/login tokens, GitHub credentials, Telegram credentials/user IDs/
    hermes gateway install
    ```
 
-   Follow the installed CLI's service prompts. For the optional dashboard, see `systemd/README.md`. Its safer localhost binding intentionally differs from the old private-network binding.
+   Follow the installed CLI's service prompts. For Tailscale and the optional dashboard, see `docs/tailscale.md` and `systemd/README.md`. The default localhost binding intentionally differs from the source's direct-tailnet binding; an optional template documents that pattern without copying the source IP address.
 
 8. Validate on the new VPS:
 
@@ -78,6 +80,15 @@ API keys, OAuth/login tokens, GitHub credentials, Telegram credentials/user IDs/
 ## VPS-specific services
 
 The source VPS had Docker, Tailscale, and SSH active. `inventory/packages.tsv` records selected observed versions, not a complete OS lockfile. Install those services only if needed using their official instructions. Reauthenticate Tailscale and recreate SSH/firewall policy locally; private keys and machine identity are intentionally not included. Docker container inventory could not be read due to socket permissions, so this repository does not reproduce Docker workloads or volumes. No firewall, network, or system-service configuration has been copied or changed.
+
+## Tailscale and security
+
+- `docs/tailscale.md`: new-device installation, SSH, automatic updates, access policy review, and both dashboard access modes.
+- `tailscale/policy.example.json`: placeholder-only, least-privilege example; not an export of the live tailnet policy. Replace the example identity and validate before applying.
+- `docs/security.md`: lockout-safe hardening checklist, credential handling, dashboard authentication checks, and Docker/UFW caveats.
+- `inventory/security.json`: sanitized live observations and explicit verification gaps. Tailscale SSH/updates and dashboard API rejection were checked; effective sshd policy, UFW/cloud firewall rules, and tailnet policy were not verified.
+
+These additions document the source setup and optional destination hardening. They do not claim that unverified security changes were applied to the source VPS. No live SSH, firewall, or Tailscale settings were changed by the repository update.
 
 ## Verification and limitations
 

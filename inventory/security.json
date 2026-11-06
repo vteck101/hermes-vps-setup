@@ -1,0 +1,45 @@
+{
+  "observed_at_utc": "2026-11-06T15:39:02.507416+00:00",
+  "scope": "Sanitized source-host observations; no live settings changed by this repository update.",
+  "tailscale": {
+    "version": "1.104.5",
+    "ssh_enabled": true,
+    "automatic_updates": true,
+    "accept_dns": true,
+    "accept_subnet_routes": false,
+    "advertised_routes": [],
+    "exit_node_configured": false,
+    "serve_configuration_present": false,
+    "tailnet_policy_verified": false,
+    "device_identity_exported": false
+  },
+  "dashboard": {
+    "bind_scope": "tailscale-ipv4",
+    "port": 9119,
+    "authentication_environment_values_present": true,
+    "unauthenticated_api_config_http_status": 401,
+    "unauthenticated_api_config_raw_http_status": 401,
+    "unauthenticated_login_page_http_status": 200,
+    "credentialed_login_tested": false,
+    "cross_device_policy_tested": false
+  },
+  "ssh": {
+    "readable_dropin_password_authentication": "no",
+    "effective_sshd_configuration_verified": false,
+    "reason": "Another SSH drop-in is unreadable to this account; sshd -T failed."
+  },
+  "firewall": {
+    "ufw_verified": false,
+    "cloud_firewall_verified": false,
+    "reason": "UFW requires root and passwordless sudo is unavailable."
+  },
+  "wildcard_tcp_listener_ports": [
+    22,
+    80,
+    443
+  ],
+  "listener_limitations": "Listener ownership and external reachability were not verified; do not infer firewall exposure or modify these services blindly.",
+  "docker_published_ports_verified": false,
+  "fresh_vps_deployment_tested": false,
+  "live_network_or_security_settings_changed": false
+}

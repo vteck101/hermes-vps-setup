@@ -19,5 +19,8 @@
     "ssh"
   ],
   "lingering_enabled": true,
-  "docker_workload_inventory": "Not collected: current account lacks Docker socket access. No containers, volumes, images or Docker credentials are backed up."
+  "docker_workload_inventory": "Not collected: current account lacks Docker socket access. No containers, volumes, images or Docker credentials are backed up.",
+  "tailscale_and_security_inventory": "security.json",
+  "tailscale_setup_guide": "../docs/tailscale.md",
+  "security_baseline_guide": "../docs/security.md"
 }

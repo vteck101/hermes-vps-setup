@@ -1,0 +1,15 @@
+# Optional direct-tailnet variant. Install as hermes-dashboard.service,
+# INSTEAD OF the localhost variant. Replace the bind-IP placeholder first.
+[Unit]
+Description=Hermes private dashboard (Tailscale address only)
+After=network-online.target
+
+[Service]
+EnvironmentFile=%h/.hermes/.env
+Environment=HERMES_DASHBOARD_BIND_IP=REPLACE_WITH_THIS_VPS_TAILSCALE_IPV4
+ExecStart=%h/.local/bin/hermes dashboard --host ${HERMES_DASHBOARD_BIND_IP} --port 9119 --no-open
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target
